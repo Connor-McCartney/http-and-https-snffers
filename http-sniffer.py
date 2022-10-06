@@ -6,7 +6,7 @@ def http_sniff(packet):
         url = packet[HTTPRequest].Host.decode() + packet[HTTPRequest].Path.decode()
         print(url)
         if packet.haslayer(Raw):
-            data = packet[Raw].load.decode().split("&")
+            data = packet[Raw]
             print(data)
 
 def main():
