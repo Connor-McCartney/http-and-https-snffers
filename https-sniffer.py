@@ -2,6 +2,7 @@ from scapy.all import sniff, IP
 from scapy.layers.http import HTTPRequest
 from socket import gethostbyaddr, herror
 
+
 duplicates = []
 
 def https_sniff(packet):
@@ -15,9 +16,11 @@ def https_sniff(packet):
             duplicates.append(dest_ip)
             print(dest_ip + " "*(20-len(dest_ip)) + host)
 
+            
 def main():
     print("HTTPS sniffing started...")
     sniff(filter="port 443", prn=https_sniff)
 
+    
 if __name__ == "__main__":
     main()
